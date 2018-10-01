@@ -9,7 +9,10 @@ public class Wolf extends Animal {
         super(world, width, height, world1, width1, height1);
         power = 9;
         initiative = 5;
-
+        type = 'W';
+    }
+    public char draw() {
+        return type;
     }
 
 

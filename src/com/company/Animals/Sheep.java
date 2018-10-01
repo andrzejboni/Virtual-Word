@@ -9,6 +9,10 @@ public class Sheep extends Animal {
         super(world, width, height, world1, width1, height1);
         power = 4;
         initiative = 4;
+        type = 'S';
+    }
 
+    public char draw() {
+        return type;
     }
 }

@@ -7,22 +7,22 @@ public abstract class Organism {
     protected int age;
     protected int position[][];
     protected boolean alive;
+    protected char type;
     protected World world = new World();
 
-    protected int width;
-    protected int height;
+    protected int width; // Wysokosc
+    protected int height; // szerokosc
 
 
     public void action() {
-        System.out.println(" ");
     }
 
     public void collision() {
         System.out.println(" ");
     }
 
-    public void draw() {
-        System.out.println(" ");
+    public char draw() {
+        return type;
     }
 
     public Organism(World world, int width, int height) {

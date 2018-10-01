@@ -8,6 +8,10 @@ public class Grass extends Plant {
         super(world, width, height);
         power =0;
         initiative = 0;
+        type = 'X';
+    }
 
+    public char draw() {
+        return type;
     }
 }

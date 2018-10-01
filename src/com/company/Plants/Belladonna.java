@@ -8,6 +8,9 @@ public class Belladonna extends Plant {
         super(world, width, height);
         power = 99;
         initiative = 0;
-
+        type = 'B';
+    }
+    public char draw() {
+        return type;
     }
 }

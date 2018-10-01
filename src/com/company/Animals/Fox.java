@@ -8,6 +8,9 @@ public class Fox extends Animal {
         super(world, width, height, world1, width1, height1);
         power = 3;
         initiative = 7;
-
+        type = 'F';
+    }
+    public char draw() {
+        return type;
     }
 }

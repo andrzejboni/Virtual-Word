@@ -16,11 +16,9 @@ public abstract class Plant extends Organism {
         System.out.println(" ");
     }
 
-    public void draw() {
-        System.out.println(" ");
+    public char draw() {
+        return type;
     }
-
-
 
     public int getPower() {
         return power;

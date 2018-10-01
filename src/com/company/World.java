@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Random;
 
 public class World {
-    private int worldWidth = 20;
-    private int worldHeight= 20;
+    public static int worldWidth = 20;
+    public static int worldHeight= 20;
 
 //    Organism organism = new Organism();
 
-    String[][] world = new String[worldWidth][worldHeight];
-    String[][] edge = new String[worldWidth+2][worldHeight+2];
+    public static char[][] world = new char[worldWidth][worldHeight];
+
+//    String[][] edge = new String[worldWidth+2][worldHeight+2];
 
     List<Organism> organismList = new ArrayList<Organism>(); // Lista organizmow
 

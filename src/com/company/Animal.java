@@ -14,14 +14,19 @@ public abstract class Animal extends Organism {
     }
 
     public void action() {
-        System.out.println(" ");
+
+
+
+        width  = Utils.randomNumber(width-1,width+1);
+        height = Utils.randomNumber(height-1,height+1);
     }
 
     public void collision() {
         System.out.println(" ");
     }
 
-    public void draw() {
+    public char draw() {
         System.out.println(" ");
+        return 0;
     }
 }

@@ -10,4 +10,12 @@ public class Utils {
         return random.nextInt((max - min) + 1) + min;
     }
 
+
+    public static boolean chceckFree (int width, int height) {
+        if (World.world[width][height] != ' ') {
+            return false;
+        }
+        return true;
+    }
+
 }

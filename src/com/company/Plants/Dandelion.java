@@ -8,6 +8,10 @@ public class Dandelion extends Plant {
         super(world, width, height);
         power = 0;
         initiative = 0;
+        type = 'D';
+    }
 
+    public char draw() {
+        return type;
     }
 }

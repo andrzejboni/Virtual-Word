@@ -8,6 +8,9 @@ public class Turtle extends Animal {
         super(world, width, height, world1, width1, height1);
         power = 2;
         initiative = 1;
-
+        type = 'T';
+    }
+    public char draw() {
+        return type;
     }
 }
