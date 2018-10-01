@@ -1,8 +1,8 @@
 package com.company;
 
 public class World {
-    private int worldWidth;
-    private int worldHeight;
+    private int worldWidth = 20;
+    private int worldHeight= 20;
 
 //    Organism organism = new Organism();
 
