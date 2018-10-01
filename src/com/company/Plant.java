@@ -2,14 +2,10 @@ package com.company;
 
 public abstract class Plant extends Organism {
 
-    int power;
-    int initiative;
-    int age;
-    int position[][];
-    World world = new World();
-
-    int width;
-    int height;
+    public Plant(World world, int width, int height) {
+        super(world, width, height);
+        alive = true;
+    }
 
 
     public void action() {
@@ -24,15 +20,7 @@ public abstract class Plant extends Organism {
         System.out.println(" ");
     }
 
-    public Plant(int power, int initiative, int age, int[][] position, World world, int width, int height) {
-        this.power = power;
-        this.initiative = initiative;
-        this.age = age;
-        this.position = position;
-        this.world = world;
-        this.width = width;
-        this.height = height;
-    }
+
 
     public int getPower() {
         return power;

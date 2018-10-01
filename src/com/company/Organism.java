@@ -2,14 +2,16 @@ package com.company;
 
 public abstract class Organism {
 
-    int power;
-    int initiative;
-    int age;
-    int position[][];
-    World world = new World();
+    protected int power;
+    protected int initiative;
+    protected int age;
+    protected int position[][];
+    protected boolean alive;
+    protected World world = new World();
 
-    int width;
-    int height;
+    protected int width;
+    protected int height;
+
 
     public void action() {
         System.out.println(" ");
@@ -23,11 +25,7 @@ public abstract class Organism {
         System.out.println(" ");
     }
 
-    public Organism(int power, int initiative, int age, int[][] position, World world, int width, int height) {
-        this.power = power;
-        this.initiative = initiative;
-        this.age = age;
-        this.position = position;
+    public Organism(World world, int width, int height) {
         this.world = world;
         this.width = width;
         this.height = height;
