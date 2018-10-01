@@ -1,12 +1,27 @@
 package com.company;
 
-public class Animal extends Organism {
+public abstract class Animal extends Organism {
 
 
-    public void action(){
+    int power;
+    int initiative;
+    int age;
+    int position[][];
+    World world = new World();
+
+    int width;
+    int height;
+
+
+    public void action() {
         System.out.println(" ");
     }
-    public void collision(){
+
+    public void collision() {
+        System.out.println(" ");
+    }
+
+    public void draw() {
         System.out.println(" ");
     }
 }
