@@ -16,8 +16,8 @@ public abstract class Organism {
     protected char type;
     protected World world = new World();
 
-    protected int width; // Wysokosc
-    protected int height; // szerokosc
+    protected int width; // szerokosc
+    protected int height; // wysokosc
 
 
     public void action() {

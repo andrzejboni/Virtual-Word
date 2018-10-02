@@ -14,4 +14,9 @@ public class Dandelion extends Plant {
     public char draw() {
         return type;
     }
+
+    public void action() {
+
+    }
+
 }
