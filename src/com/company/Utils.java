@@ -12,7 +12,6 @@ public class Utils {
         return random.nextInt((max - min) + 1) + min;
     }
 
-/
 
 
     public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {

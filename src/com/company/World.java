@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class World {
     public static int worldWidth = 30;
-    public static int worldHeight= 30;
+    public static int worldHeight = 30;
 
     World virtualWorld = new World();
 
@@ -34,65 +34,83 @@ public class World {
         }
     }
 
-    public void makeTurn(){
+    public void makeTurn() {
 
 
     }
 
 
-    public void populateWorld(){
+    public void populateWorld() {
+        int[] wolnePole = Utils.randomFreeNumber(0, 20, 0, 20);  // Generate first free cell (!)
+
+
         // Animals
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Antelope a1 = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Antelope a2 = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Antelope a3 = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
 
-        Antelope a1 = new Antelope();
-        Antelope a2 = new Antelope();
-        Antelope a3 = new Antelope();
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Fox a4 = new Fox(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Fox a5 = new Fox(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Fox a6 = new Fox(virtualWorld, wolnePole[0], wolnePole[1]);
 
-        Fox a4 = new Fox();
-        Fox a5 = new Fox();
-        Fox a6 = new Fox();
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Sheep a7 = new Sheep(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Sheep a8 = new Sheep(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Sheep a9 = new Sheep(virtualWorld, wolnePole[0], wolnePole[1]);
 
-        Sheep a7 = new Sheep();
-        Sheep a8 = new Sheep();
-        Sheep a9 = new Sheep();
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Turtle a10 = new Turtle(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Turtle a11 = new Turtle(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Turtle a12 = new Turtle(virtualWorld, wolnePole[0], wolnePole[1]);
 
-        Turtle a10 = new Turtle();
-        Turtle a11 = new Turtle();
-        Turtle a12 = new Turtle();
-
-        Wolf a13 = new Wolf();
-        Wolf a14 = new Wolf();
-        Wolf a15 = new Wolf();
-
-
-
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Wolf a13 = new Wolf(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Wolf a14 = new Wolf(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Wolf a15 = new Wolf(virtualWorld, wolnePole[0], wolnePole[1]);
 
 
         // Plants
-        int[] wolnePole = Utils.randomFreeNumber(0,20,0,20);
-        Belladonna p1 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
-
-        wolnePole = Utils.randomFreeNumber(0,20,0,20);
-        Belladonna p2 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
-
-        wolnePole = Utils.randomFreeNumber(0,20,0,20);
-        Belladonna p3 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Belladonna p1 = new Belladonna(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Belladonna p2 = new Belladonna(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Belladonna p3 = new Belladonna(virtualWorld, wolnePole[0], wolnePole[1]);
 
 
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Dandelion p4 = new Dandelion(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Dandelion p5 = new Dandelion(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Dandelion p6 = new Dandelion(virtualWorld, wolnePole[0], wolnePole[1]);
 
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Grass p7 = new Grass(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Grass p8 = new Grass(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Grass p9 = new Grass(virtualWorld, wolnePole[0], wolnePole[1]);
 
-        Dandelion p4 = new Dandelion();
-        Dandelion p5 = new Dandelion();
-        Dandelion p6 = new Dandelion();
-
-        Grass p7 = new Grass();
-        Grass p8 = new Grass();
-        Grass p9 = new Grass();
-
-        Guarana p10 = new Guarana();
-        Guarana p11 = new Guarana();
-        Guarana p11 = new Guarana();
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Guarana p10 = new Guarana(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Guarana p11 = new Guarana(virtualWorld, wolnePole[0], wolnePole[1]);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        Guarana p12 = new Guarana(virtualWorld, wolnePole[0], wolnePole[1]);
     }
-
 
 
 }

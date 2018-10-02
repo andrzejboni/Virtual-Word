@@ -6,11 +6,8 @@ import com.company.Animals.Fox;
 public abstract class Animal extends Organism {
 
 
-    public Animal(World world, int width, int height, World world1, int width1, int height1) {
+    public Animal(World world, int width, int height) {
         super(world, width, height);
-        this.world = world1;
-        this.width = width1;
-        this.height = height1;
         alive = true;
 
     }
