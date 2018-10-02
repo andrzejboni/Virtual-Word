@@ -11,11 +11,18 @@ public class Utils {
     }
 
 
-    public static boolean chceckFree (int width, int height) {
+    public static boolean checkFree(int width, int height) {
         if (World.world[width][height] != ' ') {
             return false;
         }
         return true;
+    }
+
+    public static boolean isAlvie(Organism o) {
+        if (o.getIsAlive()) {
+            return true;
+        }
+        return false;
     }
 
 }

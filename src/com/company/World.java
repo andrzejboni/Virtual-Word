@@ -14,7 +14,8 @@ public class World {
 
 //    String[][] edge = new String[worldWidth+2][worldHeight+2];
 
-    List<Organism> organismList = new ArrayList<Organism>(); // Lista organizmow
+    List<Organism> organismList = new ArrayList<Organism>(); // Lista organizmow !!! posrotować je po inicjatywie od najeiekszej do najmniejszej
+    // posrotować po komaratorach
 
 
     public void rysujSwiat() {

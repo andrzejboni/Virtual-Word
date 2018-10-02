@@ -1,6 +1,7 @@
 package com.company.Animals;
 
 import com.company.Animal;
+import com.company.Organism;
 import com.company.Utils;
 import com.company.World;
 
@@ -19,9 +20,10 @@ public class Antelope extends Animal {
 
 
     public void action() {
-        width  = Utils.randomNumber(width-2,width+2);
-        height = Utils.randomNumber(height-2,height+2);
+        width = Utils.randomNumber(width - 2, width + 2);
+        height = Utils.randomNumber(height - 2, height + 2);
     }
+
 
 
 
