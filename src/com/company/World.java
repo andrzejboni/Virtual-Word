@@ -66,11 +66,19 @@ public class World {
 
 
 
-        int[] wolnePole = Utils.randomFreeNumber(0,20,0,20);
+
         // Plants
-        Belladonna p1 = new Belladonna();
-        Belladonna p2 = new Belladonna();
-        Belladonna p3 = new Belladonna();
+        int[] wolnePole = Utils.randomFreeNumber(0,20,0,20);
+        Belladonna p1 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
+
+        wolnePole = Utils.randomFreeNumber(0,20,0,20);
+        Belladonna p2 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
+
+        wolnePole = Utils.randomFreeNumber(0,20,0,20);
+        Belladonna p3 = new Belladonna(virtualWorld,wolnePole[0],wolnePole[1]);
+
+
+
 
         Dandelion p4 = new Dandelion();
         Dandelion p5 = new Dandelion();
