@@ -10,12 +10,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.company.Main.virtualWorld;
+
 public class World {
     public static int worldWidth = 30;
     public static int worldHeight = 30;
 
-    World virtualWorld = new World();
+    public static int getWorldWidth() {
+        return worldWidth;
+    }
 
+    public static void setWorldWidth(int worldWidth) {
+        World.worldWidth = worldWidth;
+    }
+
+    public static int getWorldHeight() {
+        return worldHeight;
+    }
+
+    public static void setWorldHeight(int worldHeight) {
+        World.worldHeight = worldHeight;
+    }
+
+    public static char[][] getWorld() {
+        return world;
+    }
+
+    public static void setWorld(char[][] world) {
+        World.world = world;
+    }
 //    Organism organism = new Organism();
 
     public static char[][] world = new char[worldWidth][worldHeight];
@@ -24,6 +47,15 @@ public class World {
 
     List<Organism> organismList = new ArrayList<Organism>(); // Lista organizmow !!! posrotować je po inicjatywie od najeiekszej do najmniejszej
     // posrotować po komaratorach
+
+
+    public void fillEmptyTheWorld (){
+        for (int i = 0; i < worldWidth; i++) {
+            for (int j = 0; j < worldHeight; j++) {
+                world[i][j] = ' ';
+            }
+        }
+    }
 
 
     public void rysujSwiat() {
@@ -41,11 +73,11 @@ public class World {
 
 
     public void populateWorld() {
-        int[] wolnePole = Utils.randomFreeNumber(0, 20, 0, 20);  // Generate first free cell (!)
+        int[] wolnePole;
 
 
         // Animals
-        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
+        wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight); // Search first free cell (!)
         Antelope a1 = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
         wolnePole = Utils.randomFreeNumber(0, worldWidth, 0, worldHeight);
         Antelope a2 = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);

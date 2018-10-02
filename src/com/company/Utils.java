@@ -35,8 +35,8 @@ public class Utils {
 
     public static int checkForFreeSpace() {
         int licznik = 0;
-        for (int i = 0; i < World.world.length ; i++) {
-            for (int j = 0; j <World.world.length; j++) {
+        for (int i = 0; i < World.getWorldWidth() ; i++) {
+            for (int j = 0; j <World.getWorldHeight(); j++) {
                 if (World.world[i][j] != ' ') {
                     licznik++;
                 }
