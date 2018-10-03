@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static World virtualWorld = new World();
@@ -10,6 +12,28 @@ public class Main {
         virtualWorld.fillEmptyWorld();
         Utils.checkForFreeSpace();
         virtualWorld.populateWorld();
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n Nacisnij t aby wywołać następną turę !");
+
+
+        int j = 0;
+        while (j < 20) {
+
+            String zgadywanaLitera = scanner.nextLine();
+
+            char litera = zgadywanaLitera.charAt(0);
+
+            if (litera == 't') {
+                virtualWorld.makeTurn();
+                virtualWorld.drawTheWorld();
+            }
+
+            j++;
+        }
+
 
 //        int tab[] = Utils.randomFreeNumber(0, World.getWorldWidth(), 0, World.getWorldHeight());
 //        System.out.println(" pierwsza " + tab[0] + " druga " + tab[1]);

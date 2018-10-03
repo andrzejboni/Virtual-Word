@@ -15,7 +15,7 @@ import static com.company.Main.virtualWorld;
 public class World {
 
     public static int worldWidth = 20;
-    public static int worldHeight = 20;
+    public static int worldHeight = 50;
 
     public static char[][] world = new char[worldWidth][worldHeight];
     public List<Organism> organismList = new ArrayList<Organism>();
@@ -24,16 +24,23 @@ public class World {
     public void fillEmptyWorld() {
         for (int i = 0; i < worldWidth; i++) {
             for (int j = 0; j < worldHeight; j++) {
-                world[i][j] = ' ';
+                world[i][j] = '_';
             }
         }
     }
 
 
     public void drawTheWorld() {
+
+        for (int i = 0; i < organismList.size(); i++) { // Input objects into world table;
+            world[organismList.get(i).getWidth()][organismList.get(i).getHeight()] = organismList.get(i).getType();
+        }
+
+
         for (int i = 0; i < worldWidth; i++) {
+            System.out.print("\n");
             for (int j = 0; j < worldHeight; j++) {
-                System.out.println(world[i][j]);
+                System.out.print(world[i][j]);
             }
         }
     }

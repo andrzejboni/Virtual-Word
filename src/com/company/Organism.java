@@ -107,6 +107,30 @@ public abstract class Organism {
             }
 
 
+            if (o.getClass().equals(Guarana.class)) { // Special feature for Guarana
+
+                if (this.getPower() > o.getPower()) {
+
+                    this.setWidth(o.getWidth());
+                    this.setHeight(o.getHeight());
+
+                    o.setAlive(false);
+                } else {
+                    o.setWidth(this.getWidth());
+                    o.setHeight(this.getHeight());
+
+                    this.setAlive(false);
+                }
+
+                this.setPower(this.getPower()+3); // Zwiekszenie siły zwierzecia które zjadło o 3
+
+            }
+
+            if (o.getClass().equals(Belladonna.class)) { // Special feature for Belladonna (Wilcze jagody)
+                this.setAlive(false);   // :(
+            }
+
+
             if (this.getPower() > o.getPower()) {
 
                 this.setWidth(o.getWidth());
