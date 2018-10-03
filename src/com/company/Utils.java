@@ -20,8 +20,8 @@ public class Utils {
         tablica[0] = -1;
         tablica[1] = -1;
 
-        int width = random.nextInt((maxWidth - minWidth) + 1) + minWidth;
-        int height = random.nextInt((maxHeight - minHeight) + 1) + minHeight;
+        int width = random.nextInt((maxWidth - minWidth) ) + minWidth;
+        int height = random.nextInt((maxHeight - minHeight) ) + minHeight;
 
         if (World.world[width][height] == ' ') {
             tablica[0] = width;
@@ -37,8 +37,9 @@ public class Utils {
         int licznik = 0;
         for (int i = 0; i < World.getWorldWidth() ; i++) {
             for (int j = 0; j <World.getWorldHeight(); j++) {
-                if (World.world[i][j] != ' ') {
+                if (World.world[i][j] == ' ') {
                     licznik++;
+
                 }
             }
         }
