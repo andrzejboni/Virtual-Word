@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Utils {
+import static com.company.Main.virtualWorld;
 
+public class Utils {
 
     public static int randomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt((max - min) + 1) + min;
     }
-
-
 
     public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {
         Random random = new Random();
@@ -20,8 +19,8 @@ public class Utils {
         tablica[0] = -1;
         tablica[1] = -1;
 
-        int width = random.nextInt((maxWidth - minWidth) ) + minWidth;
-        int height = random.nextInt((maxHeight - minHeight) ) + minHeight;
+        int width = random.nextInt((maxWidth - minWidth)) + minWidth;
+        int height = random.nextInt((maxHeight - minHeight)) + minHeight;
 
         if (World.world[width][height] == ' ') {
             tablica[0] = width;
@@ -32,11 +31,10 @@ public class Utils {
         return tablica;
     }
 
-
     public static int checkForFreeSpace() {
         int licznik = 0;
-        for (int i = 0; i < World.getWorldWidth() ; i++) {
-            for (int j = 0; j <World.getWorldHeight(); j++) {
+        for (int i = 0; i < World.getWorldWidth(); i++) {
+            for (int j = 0; j < World.getWorldHeight(); j++) {
                 if (World.world[i][j] == ' ') {
                     licznik++;
 
@@ -54,4 +52,60 @@ public class Utils {
         return false;
     }
 
+    public List<Integer> bubbleSort(List<Integer> unsorted) {
+        int a;
+        int b;
+
+        for (int j = 0; j < unsorted.size(); j++) {
+            for (int i = 0; i < unsorted.size() - 1; i++) {
+                if (unsorted.get(i) > unsorted.get(i + 1)) {
+                    a = unsorted.get(i);
+                    b = unsorted.get(i + 1);
+                    unsorted.set(i, b);
+                    unsorted.set(i + 1, a);
+                }
+            }
+        }
+        return unsorted;
+    }
+
+
+    public static List<Organism> bubbleSortComparator(List<Organism> list) {
+
+        OrganismComparator organismComparator = new OrganismComparator(); // DEKLARACJA KLASY!
+        Organism[] temp = new Organism[2];
+
+        for (int j = 0; j < list.size(); j++) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                if (organismComparator.compare(list.get(i), list.get(i + 1)) == -1) {
+                    // Jeśli powyższe wywołanie metody zwróci 1, większy jest get(i), jeśli -1 większy jest get(i+1), 0 to są równe
+                    temp[0] = list.get(i);
+                    temp[1] = list.get(i + 1);
+
+                    list.set(i, temp[1]);
+                    list.set(i + 1, temp[0]);
+                }
+            }
+        }
+        return list;
+    }
+
 }
+//
+//    public List<Integer> bubbleSort(List<Integer> unsorted) {
+//        int a;
+//        int b;
+//
+//        for (int j = 0; j < unsorted.size(); j++) {
+//            for (int i = 0; i < unsorted.size() - 1; i++) {
+//                if (unsorted.get(i) > unsorted.get(i + 1)) {
+//                    a = unsorted.get(i);
+//                    b = unsorted.get(i + 1);
+//                    unsorted.set(i, b);
+//                    unsorted.set(i + 1, a);
+//                }
+//            }
+//        }
+//        return unsorted;
+//    }
+

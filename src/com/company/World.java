@@ -13,43 +13,19 @@ import java.util.Random;
 import static com.company.Main.virtualWorld;
 
 public class World {
+
     public static int worldWidth = 20;
     public static int worldHeight = 20;
 
-    public static int getWorldWidth() {
-        return worldWidth;
-    }
-
-    public static void setWorldWidth(int worldWidth) {
-        World.worldWidth = worldWidth;
-    }
-
-    public static int getWorldHeight() {
-        return worldHeight;
-    }
-
-    public static void setWorldHeight(int worldHeight) {
-        World.worldHeight = worldHeight;
-    }
-
-    public static char[][] getWorld() {
-        return world;
-    }
-
-    public static void setWorld(char[][] world) {
-        World.world = world;
-    }
-//    Organism organism = new Organism();
-
     public static char[][] world = new char[worldWidth][worldHeight];
+    public List<Organism> organismList = new ArrayList<Organism>();
 
-//    String[][] edge = new String[worldWidth+2][worldHeight+2];
+    @Override
+    public String toString() {
+        return " w " + organismList;
+    }
 
-    public List<Organism> organismList = new ArrayList<Organism>(); // Lista organizmow !!! posrotować je po inicjatywie od najeiekszej do najmniejszej
-    // posrotować po komaratorach
-
-
-    public void fillEmptyWorld (){
+    public void fillEmptyWorld() {
         for (int i = 0; i < worldWidth; i++) {
             for (int j = 0; j < worldHeight; j++) {
                 world[i][j] = ' ';
@@ -190,5 +166,29 @@ public class World {
         return organismList;
     }
 
+
+    public static int getWorldWidth() {
+        return worldWidth;
+    }
+
+    public static void setWorldWidth(int worldWidth) {
+        World.worldWidth = worldWidth;
+    }
+
+    public static int getWorldHeight() {
+        return worldHeight;
+    }
+
+    public static void setWorldHeight(int worldHeight) {
+        World.worldHeight = worldHeight;
+    }
+
+    public static char[][] getWorld() {
+        return world;
+    }
+
+    public static void setWorld(char[][] world) {
+        World.world = world;
+    }
 
 }
