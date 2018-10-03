@@ -20,10 +20,6 @@ public class World {
     public static char[][] world = new char[worldWidth][worldHeight];
     public List<Organism> organismList = new ArrayList<Organism>();
 
-    @Override
-    public String toString() {
-        return " w " + organismList;
-    }
 
     public void fillEmptyWorld() {
         for (int i = 0; i < worldWidth; i++) {
@@ -34,7 +30,7 @@ public class World {
     }
 
 
-    public void rysujSwiat() {
+    public void drawTheWorld() {
         for (int i = 0; i < worldWidth; i++) {
             for (int j = 0; j < worldHeight; j++) {
                 System.out.println(world[i][j]);
@@ -43,8 +39,10 @@ public class World {
     }
 
     public void makeTurn() {
-
-
+        for (int i = 0; i < virtualWorld.organismList.size(); i++) {
+            virtualWorld.organismList.get(i).action();
+            virtualWorld.organismList.get(i).setAge(i);
+        }
     }
 
 

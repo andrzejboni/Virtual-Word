@@ -13,8 +13,11 @@ public class Utils {
         return random.nextInt((max - min) + 1) + min;
     }
 
+    public static int licznikRekurencji = 0;
+
     public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {
         Random random = new Random();
+
         int tablica[] = new int[2];
         tablica[0] = -1;
         tablica[1] = -1;
@@ -26,8 +29,15 @@ public class Utils {
             tablica[0] = width;
             tablica[1] = height;
         } else {
+            if (licznikRekurencji == 20) {
+                licznikRekurencji = 0;
+                System.out.println("Utils.randomFreeNumber doesn't find free cell");
+                return null;
+            }
+            licznikRekurencji++;
             randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
         }
+        licznikRekurencji = 0;
         return tablica;
     }
 

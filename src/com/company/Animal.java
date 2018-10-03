@@ -18,25 +18,4 @@ public abstract class Animal extends Organism {
         height = Utils.randomNumber(height - 1, height + 1);
     }
 
-    public void collision(Organism o) {
-        if (o.getClass().equals(this.getClass())) {
-
-        }
-        else {
-            if (this.getPower() > o.getPower()) {
-
-                this.setWidth(o.getWidth());
-                this.setHeight(o.getHeight());
-
-                o.setAlive(false);
-            } else {
-                o.setWidth(this.getWidth());
-                o.setHeight(this.getHeight());
-
-                this.setAlive(false);
-            }
-        }
-
-    }
-
 }

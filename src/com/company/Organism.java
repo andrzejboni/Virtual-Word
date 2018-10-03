@@ -6,6 +6,15 @@ import com.company.Plants.Dandelion;
 import com.company.Plants.Grass;
 import com.company.Plants.Guarana;
 
+import java.lang.reflect.Constructor;
+import java.security.Timestamp;
+import java.time.Instant;
+
+import static com.company.Main.virtualWorld;
+import static com.company.World.worldHeight;
+import static com.company.World.worldWidth;
+
+
 public abstract class Organism {
 
     protected int power;
@@ -16,6 +25,7 @@ public abstract class Organism {
     protected char type;
     protected World world = new World();
 
+
     protected int width; // szerokosc
     protected int height; // wysokosc
 
@@ -23,9 +33,96 @@ public abstract class Organism {
     public void action() {
     }
 
-    public void collision(Organism organism) {
+    public void collision(Organism o) {
+        if (o.getClass().equals(this.getClass())) { // Jesli obeikty sa tego samego typu, ZACHODZI ROZMNAZANIE
+
+            int[] wolnePole = new int[2];
+            wolnePole[0] = -1;
+            wolnePole[1] = -1;
+
+            wolnePole = Utils.randomFreeNumber(o.getWidth() - 1, o.getWidth() + 1, o.getHeight() - 1, o.getHeight() + 1); // Search first free cell near object
+
+
+//            Constructor constructor = o.getClass().getDeclaredConstructor(int.class, int.class, World.class);
+//            constructor.newInstance();
+//
+//            org.getClass().newInstance(); // uzywa domyslnego konstruktora
+
+//            ANIMALS (!) Multiplication
+            if (o.getClass().equals(Antelope.class)) {
+                Antelope a = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Fox.class)) {
+                Fox a = new Fox(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Sheep.class)) {
+                Sheep a = new Sheep(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Turtle.class)) {
+                Turtle a = new Turtle(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Wolf.class)) {
+                Wolf a = new Wolf(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+
+
+            // PLANTS (!) Multiplication
+            if (o.getClass().equals(Belladonna.class)) {
+                Belladonna a = new Belladonna(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Dandelion.class)) {
+                Dandelion a = new Dandelion(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Grass.class)) {
+                Grass a = new Grass(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+            if (o.getClass().equals(Guarana.class)) {
+                Guarana a = new Guarana(virtualWorld, wolnePole[0], wolnePole[1]);
+                virtualWorld.organismList.add(a);
+            }
+
+
+        } else {
+
+
+            if (o.getClass().equals(Turtle.class) && this.getPower() < 5) { // Special feature for Turtle
+                return;
+            }
+
+
+            if (o.getClass().equals(Antelope.class)) { // Special feature for Antelope
+                int random = Utils.randomNumber(0, 1);
+
+                if (random == 1) {
+                    return;
+                }
+            }
+
+
+            if (this.getPower() > o.getPower()) {
+
+                this.setWidth(o.getWidth());
+                this.setHeight(o.getHeight());
+
+                o.setAlive(false);
+            } else {
+                o.setWidth(this.getWidth());
+                o.setHeight(this.getHeight());
+
+                this.setAlive(false);
+            }
+        }
 
     }
+
 
     public char draw() {
         return type;
