@@ -1,31 +1,44 @@
 package com.company;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import static com.company.Main.virtualWorld;
+import static com.company.World.worldHeight;
+import static com.company.World.worldWidth;
+
 
 public class Utils {
 
     public static int randomNumber(int min, int max) {
-        Random random = new Random();
-        return random.nextInt((max - min) + 1) + min;
+
+        SecureRandom random = new SecureRandom();
+        int temporary = random.nextInt((max - min) + 1) + min;
+
+        if (temporary <= 0 || temporary>= 29) {
+            randomNumber(min, max);
+        }
+
+        return temporary;
     }
 
     public static int licznikRekurencji = 0;
 
     public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {
-        Random random = new Random();
+        SecureRandom random = new SecureRandom();
+
+
 
         int tablica[] = new int[2];
         tablica[0] = -1;
         tablica[1] = -1;
 
-        int width = random.nextInt((maxWidth - minWidth)) + minWidth;
+        int width = random.nextInt(((maxWidth) - minWidth)) + minWidth;
         int height = random.nextInt((maxHeight - minHeight)) + minHeight;
 
-        if (World.world[width][height] == '_') {
+        if (World.world[width][height] == '_' && tablica[0] <=worldWidth && tablica[1] <= worldHeight ) { // Check if cell is free and is into map size
             tablica[0] = width;
             tablica[1] = height;
         } else {
@@ -35,6 +48,11 @@ public class Utils {
                 return null;
             }
             licznikRekurencji++;
+
+//
+//            if (tablica[0] <= worldWidth || tablica[1] <= worldHeight) {
+//
+//            }
             randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
         }
         licznikRekurencji = 0;

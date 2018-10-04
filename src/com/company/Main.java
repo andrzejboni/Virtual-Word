@@ -12,10 +12,11 @@ public class Main {
         virtualWorld.fillEmptyWorld();
         Utils.checkForFreeSpace();
         virtualWorld.populateWorld();
-
+        Utils.bubbleSortComparator(virtualWorld.organismList);
 
 
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("\n Nacisnij t aby wywołać następną turę !");
 
 

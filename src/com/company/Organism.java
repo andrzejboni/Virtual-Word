@@ -40,6 +40,8 @@ public abstract class Organism {
             wolnePole[0] = -1;
             wolnePole[1] = -1;
 
+
+
             wolnePole = Utils.randomFreeNumber(o.getWidth() - 1, o.getWidth() + 1, o.getHeight() - 1, o.getHeight() + 1); // Search first free cell near object
 
 
