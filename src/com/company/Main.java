@@ -1,10 +1,16 @@
 package com.company;
 
+import com.company.Animals.Wolf;
+
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
 
     public static World virtualWorld = new World();
+
+
 
     public static void main(String[] args) {
 
@@ -21,15 +27,18 @@ public class Main {
 
 
         int j = 0;
-        while (j < 20) {
+        while (j < 8000) {
 
             String zgadywanaLitera = scanner.nextLine();
 
             char litera = zgadywanaLitera.charAt(0);
 
             if (litera == 't') {
+                Utils.bubbleSortComparator(virtualWorld.organismList);
                 virtualWorld.makeTurn();
+                System.out.println("Wolne miejsca : " + Utils.checkForFreeSpace());;
                 virtualWorld.drawTheWorld();
+                System.out.println("\n \n #######################################################################################################################################");
             }
 
             j++;

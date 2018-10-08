@@ -16,10 +16,16 @@ public class Utils {
 
         SecureRandom random = new SecureRandom();
         int temporary = random.nextInt((max - min) + 1) + min;
+//
+//        if (temporary < 1 || temporary > worldHeight-1 && temporary > worldWidth-1) {
+//            randomNumber(min, max);
+//        }
 
-        if (temporary <= 0 || temporary>= 29) {
-            randomNumber(min, max);
-        }
+        if (temporary <1 ) {randomNumber(min, max);}
+        if (temporary > worldHeight-2 ) {randomNumber(min, max);}
+//        if (temporary < worldWidth-3 ) {randomNumber(min, max);}
+
+
 
         return temporary;
     }
@@ -29,30 +35,34 @@ public class Utils {
     public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {
         SecureRandom random = new SecureRandom();
 
-
-
         int tablica[] = new int[2];
-        tablica[0] = -1;
-        tablica[1] = -1;
+
 
         int width = random.nextInt(((maxWidth) - minWidth)) + minWidth;
         int height = random.nextInt((maxHeight - minHeight)) + minHeight;
+        //&& width < worldWidth-1 && height < worldHeight-1 && width >1 && height > 1
+        if (World.world[width][height] == '_'  ) {
+            if (width < worldWidth-2){
+                if (height < worldHeight-2){
+                    if (width >2){
+                        if ( height > 2){
+                            tablica[0] = width;
+                            tablica[1] = height;
+                        }
+                    }
+                }
+            }
 
-        if (World.world[width][height] == '_' && tablica[0] <=worldWidth && tablica[1] <= worldHeight ) { // Check if cell is free and is into map size
-            tablica[0] = width;
-            tablica[1] = height;
+
         } else {
-            if (licznikRekurencji == 20) {
+            if (licznikRekurencji == 30) {
                 licznikRekurencji = 0;
                 System.out.println("Utils.randomFreeNumber doesn't find free cell");
                 return null;
             }
             licznikRekurencji++;
 
-//
-//            if (tablica[0] <= worldWidth || tablica[1] <= worldHeight) {
-//
-//            }
+
             randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
         }
         licznikRekurencji = 0;

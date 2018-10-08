@@ -37,8 +37,7 @@ public abstract class Organism {
         if (o.getClass().equals(this.getClass())) { // Jesli obeikty sa tego samego typu, ZACHODZI ROZMNAZANIE
 
             int[] wolnePole = new int[2];
-            wolnePole[0] = -1;
-            wolnePole[1] = -1;
+
 
 
 
@@ -124,7 +123,7 @@ public abstract class Organism {
                     this.setAlive(false);
                 }
 
-                this.setPower(this.getPower()+3); // Zwiekszenie siły zwierzecia które zjadło o 3
+                this.setPower(this.getPower()+3); // Zwiekszenie siły zwierzecia które zjadło guarana o 3
 
             }
 
