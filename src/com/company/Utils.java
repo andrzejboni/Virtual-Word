@@ -21,6 +21,7 @@ public class Utils {
 //            randomNumber(min, max);
 //        }
 
+
         if (temporary <1 ) {randomNumber(min, max);}
         if (temporary > worldHeight-2 ) {randomNumber(min, max);}
 //        if (temporary < worldWidth-3 ) {randomNumber(min, max);}
