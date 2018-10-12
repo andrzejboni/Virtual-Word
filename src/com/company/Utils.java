@@ -14,22 +14,17 @@ public class Utils {
 
     public static int randomNumber(int min, int max) {
 
-        SecureRandom random = new SecureRandom();
-        int temporary = random.nextInt((max - min) + 1) + min;
-//
-//        if (temporary < 1 || temporary > worldHeight-1 && temporary > worldWidth-1) {
-//            randomNumber(min, max);
-//        }
+
+            Random random = new Random();
+            int temp = random.nextInt((max - min) + 1) + min;
+
+            if (temp > worldHeight-1 || temp < 0) {
+                return randomNumber(min, max); // !!!!!!!!!!!!!!!!!!!!!!
+            }
+            return temp;
+        }
 
 
-        if (temporary <1 ) {randomNumber(min, max);}
-        if (temporary > worldHeight-2 ) {randomNumber(min, max);}
-//        if (temporary < worldWidth-3 ) {randomNumber(min, max);}
-
-
-
-        return temporary;
-    }
 
     public static int licznikRekurencji = 0;
 
@@ -41,19 +36,10 @@ public class Utils {
 
         int width = random.nextInt(((maxWidth) - minWidth)) + minWidth;
         int height = random.nextInt((maxHeight - minHeight)) + minHeight;
-        //&& width < worldWidth-1 && height < worldHeight-1 && width >1 && height > 1
-        if (World.world[width][height] == '_'  ) {
-            if (width < worldWidth-2){
-                if (height < worldHeight-2){
-                    if (width >2){
-                        if ( height > 2){
-                            tablica[0] = width;
-                            tablica[1] = height;
-                        }
-                    }
-                }
-            }
 
+        if (World.world[width][height] == '_' && width < worldWidth - 1 && height < worldHeight - 1 && width > 1 && height > 1) {
+            tablica[0] = width;
+            tablica[1] = height;
 
         } else {
             if (licznikRekurencji == 30) {
@@ -64,7 +50,7 @@ public class Utils {
             licznikRekurencji++;
 
 
-            randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
+            return randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
         }
         licznikRekurencji = 0;
         return tablica;

@@ -36,8 +36,8 @@ public class Antelope extends Animal {
 //    }
 
     public void action() {
-        int temporaryWidth = Utils.randomNumber(width - 2, width + 2);
-        int temporaryHeight = Utils.randomNumber(height - 2, height + 2);
+        int temporaryWidth = Utils.randomNumber((width - 2), (width + 2));
+        int temporaryHeight = Utils.randomNumber((height - 2), (height + 2));
 
         if (temporaryWidth > worldWidth-2) {action();}
         if (temporaryWidth < 2) {action();}

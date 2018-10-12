@@ -10,37 +10,37 @@ public class Main {
 
     public static World virtualWorld = new World();
 
-
-
     public static void main(String[] args) {
-
 
         virtualWorld.fillEmptyWorld();
         Utils.checkForFreeSpace();
         virtualWorld.populateWorld();
         Utils.bubbleSortComparator(virtualWorld.organismList);
 
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n Nacisnij t aby wywołać następną turę !");
 
-
         int j = 0;
-        while (j < 8000) {
+        while (j < 500) {
 
-            String zgadywanaLitera = scanner.nextLine();
+//            String zgadywanaLitera = scanner.nextLine();
+//            char litera = zgadywanaLitera.charAt(0);
+//            if (litera == 't') {
 
-            char litera = zgadywanaLitera.charAt(0);
-
-            if (litera == 't') {
                 Utils.bubbleSortComparator(virtualWorld.organismList);
                 virtualWorld.makeTurn();
                 System.out.println("Wolne miejsca : " + Utils.checkForFreeSpace());;
                 virtualWorld.drawTheWorld();
                 System.out.println("\n \n #######################################################################################################################################");
-            }
+//            }
 
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Iteracja " +j);
             j++;
         }
 
