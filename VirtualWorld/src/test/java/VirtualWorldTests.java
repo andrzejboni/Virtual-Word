@@ -10,6 +10,8 @@ import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 import static com.company.Utils.randomNumber;
+import static com.company.World.worldHeight;
+import static com.company.World.worldWidth;
 
 public class VirtualWorldTests {
 
@@ -35,7 +37,6 @@ public class VirtualWorldTests {
 
     }
 
-
     @Test
     public void UtilsRandomFreeNumberTestBelowMinimum() {
         int width = 1;
@@ -51,11 +52,23 @@ public class VirtualWorldTests {
     }
 
     @Test
-    public void UtilsRandomFreeNumberTestAboveMaximum() {
+    public void UtilsRandomFreeNumberTestAboveMaximumWidth() {
         int height = 29;
 
         for (int i = 0; i < 50; i++) {
-            if (randomNumber(height - 2, height + 2) > 30) {
+            if (randomNumber(worldWidth - 2, worldWidth + 2) > worldWidth) {
+                System.out.println(height);
+                Assert.fail("Przekroczono dopuszczalny zakres!");
+            }
+        }
+    }
+
+    @Test
+    public void UtilsRandomFreeNumberTestAboveMaximumHeight() {
+        int height = 29;
+
+        for (int i = 0; i < 50; i++) {
+            if (randomNumber(worldHeight - 2, worldHeight + 2) > worldHeight) {
                 System.out.println(height);
                 Assert.fail("Przekroczono dopuszczalny zakres!");
             }

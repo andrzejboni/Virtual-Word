@@ -11,6 +11,7 @@ import java.security.Timestamp;
 import java.time.Instant;
 
 import static com.company.Main.virtualWorld;
+import static com.company.World.logs;
 import static com.company.World.worldHeight;
 import static com.company.World.worldWidth;
 
@@ -33,12 +34,11 @@ public abstract class Organism {
     public void action() {
     }
 
+
     public void collision(Organism o) {
         if (o.getClass().equals(this.getClass())) { // Jesli obeikty sa tego samego typu, ZACHODZI ROZMNAZANIE
 
             int[] wolnePole = new int[2];
-
-
 
 
             wolnePole = Utils.randomFreeNumber(o.getWidth() - 1, o.getWidth() + 1, o.getHeight() - 1, o.getHeight() + 1); // Search first free cell near object
@@ -46,29 +46,34 @@ public abstract class Organism {
 
 //            Constructor constructor = o.getClass().getDeclaredConstructor(int.class, int.class, World.class);
 //            constructor.newInstance();
-//
 //            org.getClass().newInstance(); // uzywa domyslnego konstruktora
+
 
 //            ANIMALS (!) Multiplication
             if (o.getClass().equals(Antelope.class)) {
                 Antelope a = new Antelope(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new antelope!");  // could be simplest :|
             }
             if (o.getClass().equals(Fox.class)) {
                 Fox a = new Fox(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new fox!");
             }
             if (o.getClass().equals(Sheep.class)) {
                 Sheep a = new Sheep(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new sheep!");
             }
             if (o.getClass().equals(Turtle.class)) {
                 Turtle a = new Turtle(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new turtle!");
             }
             if (o.getClass().equals(Wolf.class)) {
                 Wolf a = new Wolf(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new wolf!");
             }
 
 
@@ -76,18 +81,22 @@ public abstract class Organism {
             if (o.getClass().equals(Belladonna.class)) {
                 Belladonna a = new Belladonna(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new belladonna!");
             }
             if (o.getClass().equals(Dandelion.class)) {
                 Dandelion a = new Dandelion(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new dandelion!");
             }
             if (o.getClass().equals(Grass.class)) {
                 Grass a = new Grass(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new grass!");
             }
             if (o.getClass().equals(Guarana.class)) {
                 Guarana a = new Guarana(virtualWorld, wolnePole[0], wolnePole[1]);
                 virtualWorld.organismList.add(a);
+                logs.add("There are a new guarana!");
             }
 
 

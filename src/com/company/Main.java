@@ -20,19 +20,21 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n Nacisnij t aby wywołać następną turę !");
-
+        System.out.println(virtualWorld.organismList.get(0).getType() + " Nowe bubu ");
         int j = 0;
-        while (j < 500) {
+        while (j <= 1500) {
 
 //            String zgadywanaLitera = scanner.nextLine();
 //            char litera = zgadywanaLitera.charAt(0);
 //            if (litera == 't') {
 
-                Utils.bubbleSortComparator(virtualWorld.organismList);
-                virtualWorld.makeTurn();
-                System.out.println("Wolne miejsca : " + Utils.checkForFreeSpace());;
-                virtualWorld.drawTheWorld();
-                System.out.println("\n \n #######################################################################################################################################");
+            Utils.bubbleSortComparator(virtualWorld.organismList);
+            virtualWorld.makeTurn();
+
+            virtualWorld.drawTheWorld();
+            System.out.println("\n\nIteracja " + j);
+            System.out.println("Wolne miejsca : " + Utils.checkForFreeSpace());
+            System.out.println("\n \n #######################################################################################################################################");
 //            }
 
             try {
@@ -40,7 +42,7 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Iteracja " +j);
+
             j++;
         }
 
