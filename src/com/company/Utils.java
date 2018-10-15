@@ -28,7 +28,7 @@ public class Utils {
 
     public static int licznikRekurencji = 0;
 
-    public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) {
+    public static int[] randomFreeNumber(int minWidth, int maxWidth, int minHeight, int maxHeight) { // method generating a random place only with a free field,used to place on the map at the beginning of the game
         SecureRandom random = new SecureRandom();
 
         int tablica[] = new int[2];
@@ -55,6 +55,36 @@ public class Utils {
         licznikRekurencji = 0;
         return tablica;
     }
+
+
+    public static int[] randomFreeNumberForAction(int minWidth, int maxWidth, int minHeight, int maxHeight) { // method allowing collision
+        SecureRandom random = new SecureRandom();
+
+        int tablica[] = new int[2];
+
+
+        int width = random.nextInt(((maxWidth) - minWidth)) + minWidth;
+        int height = random.nextInt((maxHeight - minHeight)) + minHeight;
+
+        if (width < worldWidth - 1 && height < worldHeight - 1 && width > 1 && height > 1) { // difference with randomFreeNumber
+            tablica[0] = width;
+            tablica[1] = height;
+
+        } else {
+            if (licznikRekurencji == 80) {
+                licznikRekurencji = 0;
+                System.out.println("Utils.randomFreeNumber doesn't find free cell");
+                return null;
+            }
+            licznikRekurencji++;
+
+
+            return randomFreeNumber(minWidth, maxWidth, minHeight, maxHeight);
+        }
+        licznikRekurencji = 0;
+        return tablica;
+    }
+
 
     public static int checkForFreeSpace() {
         int licznik = 0;

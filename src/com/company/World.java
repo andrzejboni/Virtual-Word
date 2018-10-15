@@ -14,8 +14,8 @@ import static com.company.Main.virtualWorld;
 
 public class World {
 
-    public static int worldWidth = 20;
-    public static int worldHeight = 20;
+    public static int worldWidth = 30;
+    public static int worldHeight = 30;
     public static int temporaryAge = 1;
 
 
@@ -41,10 +41,14 @@ public class World {
     public void drawTheWorld() {
 
         for (int i = 1; i < organismList.size(); i++) { // Put objects into world table   /// !!!!!!!!!! Zweryfikować oragnismList.size() -1 !
+
+//
 //            System.out.println("Szerokośc organizmu " + i + " to " + organismList.get(i).getWidth());
 //            System.out.println("Wysokosc organizmu " + i + " to " + organismList.get(i).getHeight());
+
 //            System.out.println("Klasa organizmu to " + i + " to " + organismList.get(i).getClass());
 //            System.out.println("Czy zyje " + i + " to " + organismList.get(i).getIsAlive());
+//            System.out.println("Wiek tego objektu to " + i + " to " + organismList.get(i).getAge());
             world[organismList.get(i).getWidth()][organismList.get(i).getHeight()] = organismList.get(i).getType();
         }
 

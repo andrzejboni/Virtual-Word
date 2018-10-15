@@ -20,9 +20,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n Nacisnij t aby wywołać następną turę !");
-        System.out.println(virtualWorld.organismList.get(0).getType() + " Nowe bubu ");
+
         int j = 0;
-        while (j <= 1500) {
+        while (j <= 100) {
 
 //            String zgadywanaLitera = scanner.nextLine();
 //            char litera = zgadywanaLitera.charAt(0);
