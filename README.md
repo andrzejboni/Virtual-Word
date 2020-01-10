@@ -27,3 +27,46 @@ W klasie Zwierze należy zaimplementować wspólne dla wszystkich/większości z
 
 Klasa Człowiek ma stanowić rozszerzenie klasy Zwierzę. Nie posiada on własnej inteligencji (sterowany jest przez gracza) oraz nie rozmnaża się (gracz będzie jedynym Człowiekiem na mapie).
 
+![image](https://user-images.githubusercontent.com/11943355/72160806-405f9f00-33bf-11ea-962a-bf8d4f975bd7.png)
+
+![image](https://user-images.githubusercontent.com/11943355/72160821-46ee1680-33bf-11ea-9896-38a08a3af0a9.png)
+
+W klasie Roślina zaimplementuj wspólne dla wszystkich/większości roślin zachowania, przede wszystkim:
+* symulacja rozprzestrzeniania się rośliny w metodzie akcja() ^ z pewnym prawdopodobieństwem każda z roślin może „zasiać" nową roślinę tego samego gatunku na losowym, sąsiednim polu.
+Wszystkie rośliny mają zerową inicjatywę.
+Zaimplementuj 4 klasy roślin. Rodzaje roślin definiuje poniższa tabela.
+
+
+![image](https://user-images.githubusercontent.com/11943355/72160831-4c4b6100-33bf-11ea-83b5-16a82efd3c65.png)
+
+Stwórz klasę Świat w której skład wchodzą obiekty klasy Organizm . Zaimplementuj przebieg tury, wywołując metody akcja() dla wszystkich organizmów oraz kolizja() dla organizmów na tym samym polu. Pamiętaj, że kolejność wywoływania metody akcja() zależy od inicjatywy (lub wieku, w przypadku równych wartości inicjatyw) organizmu.
+Organizmy mają możliwość wpływania na stan świata. Dlatego istnieje konieczność przekazania metodom akcja() oraz kolizja() parametru określającego obiekt klasy Świat . Postaraj się, aby klasa Świat definiowała jako publiczne składowe tylko takie pola i metody, które są potrzebne pozostałym obiektom aplikacji do działania. Pozostałą funkcjonalność świata staraj się zawrzeć w składowych prywatnych. 
+
+
+![image](https://user-images.githubusercontent.com/11943355/72160843-53726f00-33bf-11ea-8f48-fc918a364c68.png)
+
+Wskazówki projektowe:
+Wizualizację świata należy przeprowadzić w konsoli. Każdy organizm jest reprezentowany przez inny symbol ASCII. Naciśnięcie jednego z klawiszy powoduje przejście do kolejnej tury, wyczyszczenie konsoli i ponowne wypisanie odpowiednich symboli, reprezentujących zmieniony stan gry. Co najmniej jedna linia tekstu w konsoli przeznaczona jest na raportowanie wyników zdarzeń takich jak jedzenie lub wynik walki.
+Klasy i obiekty
+1.	W projekcie należy użyć klas oraz wykorzystywać obiekty, nie jest dopuszczalne pisanie
+"luźnych" funkcji (poza funkcją main)
+2.	Logiczny podział na przestrzenie nazw - każda przestrzeń nazw w oddzielnym module
+(pliku)
+3.	Metody które nie wykorzystują obiektu powinny być statyczne. Nie należy ich nadużywać.
+4.	Co najmniej jedna klasa abstrakcyjna Hermetyzacja:
+1.	Wszystkie pola klas powinny być prywatne lub chronione (protected)
+2.	Wybrane klasy powinny mieć metody typu get i set dla składowych lub tylko get, lub całkowity brak dostępu bezpośredniego
+Dziedziczenie
+1.	Przynajmniej 1 klasa bazowa po której dziedziczy bezpośrednio (w tym samym pokoleniu) kilka klas pochodnych
+2.	Wielokrotne wykorzystanie kodu (kod w klasie bazowej używany przez obiekty klas pochodnych)
+3.	Nadpisywanie metody klasy bazowej
+4.	Jawne wywołanie metod z klasy bazowej mimo ich nadpisania w klasie pochodnej Inne wymagania
+1.	Stan wszystkich obiektów powinien wczytywać i zapisywać się do pliku
+2.	Zademonstrować obsługę wyjątków oraz zaimplementować przykładowe własne wyjątki
+Styl programowania
+1. Należy przestrzegać reguł związanych ze stylem programowania, przede wszystkim:
+*	spójność nazewnictwa zmiennych i typów,
+*	spójność w zakresie stosowania tabulacji (wcięcia) i odstępów,
+*	ograniczony rozmiar funkcji,
+*	zachowanie spójności w organizacji kodu źródłowego wewnątrz klasy (np. jednolita
+kolejność public->protected->private).
